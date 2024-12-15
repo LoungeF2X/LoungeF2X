@@ -12,7 +12,7 @@ const app = express();
 app.use(express.static(publicPath));
 app.use("/l2x/", express.static(uvPath));
 app.get("/", (req, res) => {
-  res.sendFile(join(publicPath, "index2.html"))
+  res.sendFile(join(publicPath, "index.html"))
 })
 app.get("/reading/", (req, res) => {
   res.sendFile(join(publicPath, "reading/index.html/"))
