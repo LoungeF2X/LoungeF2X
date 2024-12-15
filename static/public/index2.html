@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/tabcloaker.js"></script>
+    <script>
+        // Call cloakAll on page load
+        window.onload = cloakAll;
+    </script>
+    <style>
+        .iframe {
+            position: fixed;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            width: 100%;
+            border: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            z-index: 999999;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe class="iframe" src="/index.html">
+        Iframes aren't supported in your browser.
+    </iframe>
+</body>

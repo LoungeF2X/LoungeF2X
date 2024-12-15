@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever | Portal</title>
+    <link rel="icon" type="image/png" href="images/clever.jpg"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="tabcloaker.js"></script>
+    <script src="navbar.js"></script>
+    <script src="rightclick.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const formName = document.getElementById('TabName');
+    const urlInputName = document.getElementById('TabNameInput'); // Ensure this ID matches the input element in your HTML
+
+    if (formName && urlInputName) {
+        formName.addEventListener('submit', function (event) {
+            event.preventDefault();
+            let url = urlInputName.value.trim();
+            localStorage.setItem('TabText', url);
+            urlInputImage.value = ''; // Clear the input field
+            cloakAll();
+        });
+    }
+
+    const formImage = document.getElementById('TabImage');
+    const urlInputImage = document.getElementById('TabImageInput'); // Ensure this ID matches the input element in your HTML
+
+    if (formImage && urlInputImage) {
+        formImage.addEventListener('submit', function (event) {
+            event.preventDefault();
+            let url = urlInputImage.value.trim();
+            let url2 = window.location.origin
+            if (!url.startsWith('https://')) {
+                if (url.includes('/images/')) {
+                urlNew = url2 + url;        
+                } else {
+                urlNew = 'https://' + url;
+            }
+}
+            localStorage.setItem('TabImage', urlNew);
+            urlInputImage.value = ''; // Clear the input field
+            cloakAll();
+        })
+        };
+        const formBackground = document.getElementById('TabBackground');
+    const urlInputBackground = document.getElementById('TabBackgroundInput');
+
+    if (formBackground && urlInputBackground) {
+        formBackground.addEventListener('submit', function (event) {
+            event.preventDefault();
+            let url = urlInputBackground.value.trim();
+            let url2 = window.location.origin
+            if (!url.startsWith('https://')) {
+                if (url.includes('/images/')) {
+                urlNew = url2 + url;        
+                } else {
+                urlNew = 'https://' + url;
+            }
+}
+            localStorage.setItem('BackURL', urlNew);
+            urlInputBackground.value = ''; // Clear the input field
+            cloakAll();
+        })
+        };
+    });
+</script>
+    <script>Help()</script> 
+    <script src=https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js></script>     
+    <script>Help1()</script>
+    <style>.CDF{padding:15px;width:92.5%;border-radius:10px;background:white;text-align:center;font-size:20px;border:none;outline:none;color:Black;margin-top:10px}.settings-title{display:block;font-size:70px;margin-block-start:.67em;margin-block-end:.67em;margin-inline-start:0;margin-inline-end:0;font-weight:700}.white{color: white;}.settings-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:10% 10px 10px}.settings-card{background-color:black;border-radius:10px;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,.1);width:400px;transition:all .3s ease}.settings-card:hover{transform:translatey(-5px);box-shadow:0 8px 12px rgba(0,0,0,.2)}.settings-card h3{margin-top:0;color:var(-t-primary-tex)}.settings-card p{color:white}a{color:var(--text-primary)}</style>
+</head>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .navbar {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+
+      .navbar a:hover,
+      .dropdown:hover .dropbtn {
+        background-color: red;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body style="background-color: white">
+<style>
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #333;}
+
+.default {color: white;}
+</style>
+</head>
+<body>
+  <div class="settings-container">
+    <div class="settings-card">
+    <h1 class="white">Tab Image</h1>
+        <p class="white">Put in the url that you want the image of the tab to be.</p>
+    <form id="TabImage" style="background:transparent">
+         <input type="text" class="CDF"id="TabImageInput" placeholder="Enter your URL here" required>
+       <button type="submit" class="CDF">Save Image</button>
+    </form>
+  </div>
+<div class="settings-card">
+    <h1 class="white">Tab Name</h1>
+                <p class="white">Put in the name that you want the title of the tab to be.</p>
+    <form id="TabName" style="background:transparent">
+        <input type="text" class="CDF" id="TabNameInput" placeholder="Enter your name here" required>
+        <button type="submit" class="CDF">Save Name</button>
+    </form>
+      </div>
+<div class="settings-card">
+    <h1 class="white">Tab Background</h1>
+                <p class="white">Put in the url that you want the background of the tab to be.</p>
+    <form id="TabBackground" style="background:transparent">
+        <input type="text" class="CDF" id="TabBackgroundInput" placeholder="Enter your URL here" required>
+        <button type="submit" class="CDF">Save Background</button>
+    </form>
+      </div>
+        <div class="settings-card">
+            <h1 class="white">About:Blank</h1>
+            <p>Cloak the tab to be About:Blank so it doesnt show up in your history.</p>
+            <button id="openGame" class="openGame" onclick="openGame()">Open in About:Blank</button></center>
+        </div>
+        <div class="settings-card">
+    <h1 class="white">Information</h1>
+<p>Version 1</p>
+ <p class="white">This is work In Progress. To suggest stuff to add go to the <a href="/contact.html">contact page.</a></p>
+  </div>
+    </div>    
+    <script>
+function openGame() {
+    var url = window.location.href; 
+
+    // Open new window
+    var win = window.open();
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh'; 
+    
+    // Handle iframe
+    var iframe = win.document.createElement('iframe'); 
+    iframe.style.border = 'none'; 
+    iframe.style.width = '100%'; 
+    iframe.style.height = '100%'; 
+    iframe.src = url; 
+    win.document.body.appendChild(iframe); 
+
+    // Handle favicon
+    var faviconUrl = localStorage.getItem("TabImage") || '/images/clever.jpg'; // Use the localStorage value if it exists, otherwise default
+    let link = win.document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = faviconUrl;
+    win.document.head.appendChild(link); // Add favicon to the new window's head
+
+    // Handle title
+    var tabText = localStorage.getItem("TabText");
+    if (tabText && tabText !== "null") {
+        win.document.title = tabText; // Set title from localStorage
+    } else {
+        win.document.title = "Clever | Portal"; // Default title
+    }
+
+    // Redirect current page
+    location.replace("http://google.com");
+}
+    </script>
+        <style type="text/css">
+        .context-menu {
+            position: absolute;
+            text-align: center;
+            background: lightgray;
+            border: 1px solid black;
+            border-radius: 25px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+        }
+
+
+        .context-menu ul {
+            padding: 0px;
+            margin: 0px;
+            min-width: 150px;
+            list-style: none;
+        }
+
+        .context-menu ul li {
+            padding-bottom: 7px;
+            border-radius: 100px;
+            padding-top: 7px;
+            border: 1px solid black;
+        }
+
+        .context-menu ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .context-menu ul li:hover {
+            background: darkgray;
+        }
+    </style>
+    <div id="contextMenu" class="context-menu" style="display:none">
+        <ul>
+            <li onclick="openSettings('/')"><a>Home</a></li>
+            <li onclick="openSettings('/proxy.html')"><a>Proxy</a></li>
+            <li onclick="cloakAll()"><a>Cloak Tab</a></li>
+        </ul>
+    </div>
+      <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+    new Crate({
+        server: '1308263296511512647', // School Heaven
+        channel: '1308263296981270552' // #general
+    })
+</script>
+<script>document.addEventListener('DOMContentLoaded', cloakAll());</script>
+</body>
+</html>
