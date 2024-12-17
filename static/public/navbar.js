@@ -51,6 +51,7 @@ function insertNavbar() {
 
     body {
       font-family: Arial, Helvetica, sans-serif;
+      color: red;
     }
 
     .navbar {
