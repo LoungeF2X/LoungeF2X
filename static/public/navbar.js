@@ -115,9 +115,6 @@ function insertNavbar() {
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    .settings-card p{
-    float: center;
-    font-size: 35px;}
   </style>
 
   <div id="contextMenu" class="context-menu" style="display:none">
