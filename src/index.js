@@ -11,6 +11,9 @@ const app = express();
 
 app.use(express.static(publicPath));
 app.use("/l2x/", express.static(uvPath));
+app.get("/g", (req, res) => {
+  res.sendFile(join(publicPath, "g.html"))
+})
 app.get("/", (req, res) => {
   res.sendFile(join(publicPath, "index.html"))
 })
