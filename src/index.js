@@ -5,6 +5,21 @@ import { publicPath } from "ultraviolet-static";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { join } from "node:path";
 import { hostname } from "node:os";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+const firebaseConfig = {
+  apiKey: "AIzaSyBddL00mb8gHPJH__nIdADfBhqPiFtOLCE",
+  authDomain: "loungef2x.firebaseapp.com",
+  projectId: "loungef2x",
+  storageBucket: "loungef2x.firebasestorage.app",
+  messagingSenderId: "38074061356",
+  appId: "1:38074061356:web:5b8386cd6109504bdbf789",
+  measurementId: "G-K0XFKT6PDT"
+};
+
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const bare = createBareServer("/bare/");
 const app = express();
