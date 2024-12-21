@@ -128,7 +128,7 @@ function insertNavbar() {
   <div class="navbar">
     <a href="/index2.html">Home</a>
     <a href="/g">Games</a>
-    <a href="/tabs.html>Tabs (WIP)</a>
+    <a href="/tabs.html">Tabs (WIP)</a>
     <a href="/contact.html">Contact</a>
     <a href="/settings.html">Settings</a>
     <a href="/category/shooting.html">Shooting</a>
