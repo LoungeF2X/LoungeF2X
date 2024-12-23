@@ -341,11 +341,12 @@ function addTab() {
 
     // Redirect to appropriate iframe source
     activeIframe.src = url.startsWith("http") ? `/embed.html#${url}` : url;
-    input.value=''; 
 }
 
         function home() {
 	const homeIframe = document.querySelector('.tab-iframe.active');
+	const inputElement = document.getElementById('search-input');
+	inputElement.value = ''; 
         homeIframe.src = '/index.html';
         }
     </script>
