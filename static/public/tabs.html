@@ -344,7 +344,8 @@ function addTab() {
 }
 
         function home() {
-            activeIframe.src = '/index.html';
+	const homeIframe = document.querySelector('.tab-iframe.active');
+        homeIframe.src = '/index.html';
         }
     </script>
 </body>
