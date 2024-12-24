@@ -207,7 +207,7 @@
         </div>
     </div>
     <div class="content-wrapper" id="content-wrapper">
-        <iframe class="tab-iframe active" src="/index.html" id="iframe-1"></iframe>
+        <iframe class="tab-iframe active" src="/embed.html#https://google.com" id="iframe-1"></iframe>
     </div>
     <script>
         let tabCount = 1;
@@ -272,7 +272,7 @@ function addTab() {
     
     iframe.classList.add('tab-iframe');
     iframe.id = `iframe-${tabCount}`;
-    iframe.src = '/index.html';
+    iframe.src = '/embed.html#https://google.com';
     document.getElementById('content-wrapper').appendChild(iframe);
 
     // Observe iframe changes and update the tab name
@@ -347,7 +347,7 @@ function addTab() {
 	const homeIframe = document.querySelector('.tab-iframe.active');
 	const inputElement = document.getElementById('search-input');
 	inputElement.value = ''; 
-        homeIframe.src = '/index.html';
+        homeIframe.src = '/embed.html#https://google.com';
         }
     </script>
 </body>
