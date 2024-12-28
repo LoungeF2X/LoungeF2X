@@ -1,26 +1,5 @@
 // Function to create and insert the navbar
 function insertNavbar() {
-  // Define the HTML for the navbar
-          function buffedAB() {
-  var myWindow1 = window.open(
-    "",
-    "myWindow1",
-    "scrollbars=1,height=" + screen.availHeight + ",width=" + screen.availWidth,
-  );
-  myWindow1.document.write(
-    '<!DOCTYPE html>\n\
-      <script src="/navbar.js"></script>
-<title>Classes</title>   <link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png"/><link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png"/>\n\
-<p><iframe src="' +
-      "https://" +
-      window.location.host +
-      '"frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%">\n\
-<script>\n\
-alert("");\n\
-<\x2fscript>',
-  );
-  location.replace("https://classroom.google.com");
-}
   const navbarHTML = `
   <style type="text/css">
           .secret-mode {
@@ -206,3 +185,19 @@ alert("");\n\
 document.addEventListener("DOMContentLoaded", () => {
   insertNavbar();
 });
+          function buffedAB() {
+  var myWindow1 = window.open("", "myWindow1", "scrollbars=1,height=" + screen.availHeight + ",width=" + screen.availWidth,
+  );
+  myWindow1.document.write(
+    '<!DOCTYPE html>\n\
+      <script src="/navbar.js"></script>
+<p><iframe src="' +
+      "https://" +
+      window.location.host +
+      '"frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%">\n\
+<script>\n\
+alert("");\n\
+<\x2fscript>',
+  );
+  location.replace("https://classroom.google.com");
+}
