@@ -185,12 +185,15 @@ function insertNavbar() {
 document.addEventListener("DOMContentLoaded", () => {
   insertNavbar();
 });
-          function buffedAB() {
-  var myWindow1 = window.open("", "myWindow1", "scrollbars=1,height=" + screen.availHeight + ",width=" + screen.availWidth,
+function buffedAB() {
+  var myWindow1 = window.open(
+    "",
+    "myWindow1",
+    "scrollbars=1,height=" + screen.availHeight + ",width=" + screen.availWidth,
   );
   myWindow1.document.write(
     '<!DOCTYPE html>\n\
-      <script src="/navbar.js"></script>
+<title>Classes</title>   <link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png"/><link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png"/>\n\
 <p><iframe src="' +
       "https://" +
       window.location.host +
