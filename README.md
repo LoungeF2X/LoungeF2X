@@ -1,6 +1,6 @@
 ## Deployment
-
-To deploy this website locally, follow these steps:
+> [!NOTE]
+> You **can't** deploy to static hosts, like Netlify, Cloudflare Pages, or GitHub Pages. To deploy to static sites use [our static repo](https://github.com/LoungeF2X/LoungeF2X-static/)
 
 1. Clone the repository: `git clone https://github.com/LoungeF2X/Loungef2x`
 2. Navigate to the project directory: `cd LoungeF2X`
