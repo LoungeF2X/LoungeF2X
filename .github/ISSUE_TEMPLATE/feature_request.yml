@@ -7,7 +7,7 @@ body:
     id: is-it-related-to-a-problem
     attributes:
       label: Is your feature request related to a problem? Please describe.
-      description: A clear and concise description of what the problem is. Ex. Im always frustrated when [...]
+      description: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
     validations:
       required: true
   - type: input
@@ -21,14 +21,15 @@ body:
     id: describe-alternatives
     attributes:
       label: Describe alternatives you have considered
-      description: A clear and concise description of any alternative solutions or features you haveve considered.
+      description: A clear and concise description of any alternative solutions or features you have considered.
     validations:
       required: true
-  - type: file
+  - type: input
     id: additional-context
     attributes:
       label: Additional context
-      description: Add any other context or screenshots about the feature request here. You can upload images.
-      accept: image/*   # This will allow only image files to be uploaded.
+      description: |
+        Add any other context or screenshots about the feature request here. 
+        To include images, drag and drop them into the comment box after submitting the issue or send a link to the image.
     validations:
       required: false
