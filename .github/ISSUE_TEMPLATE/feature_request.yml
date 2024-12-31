@@ -24,10 +24,11 @@ body:
       description: A clear and concise description of any alternative solutions or features you haveve considered.
     validations:
       required: true
-  - type: input
+  - type: file
     id: additional-context
     attributes:
       label: Additional context
-      description: Add any other context or screenshots about the feature request here.
+      description: Add any other context or screenshots about the feature request here. You can upload images.
+      accept: image/*   # This will allow only image files to be uploaded.
     validations:
       required: false
