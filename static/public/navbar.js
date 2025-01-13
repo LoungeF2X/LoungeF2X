@@ -116,6 +116,7 @@ function insertNavbar() {
             font-size: 1em;
             z-index: 1000;
             transition: background 0.3s ease;
+            z-index: 10000000000001;
         }
         .navbar {
             width: 250px;
