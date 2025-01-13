@@ -193,6 +193,7 @@ function insertNavbar() {
       display: block;
     }
   </style>
+  <script>
           const toggleBtn = document.querySelector('.toggle-btn');
         const sidebar = document.querySelector('.navbar');
 
