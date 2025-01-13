@@ -193,13 +193,6 @@ function insertNavbar() {
       display: block;
     }
   </style>
-  <script>
-          const toggleBtn = document.querySelector('.toggle-btn');
-        const sidebar = document.querySelector('.navbar');
-
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('show');
-        });</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div id="contextMenu" class="context-menu" style="display:none">
     <ul>
@@ -257,18 +250,28 @@ function insertNavbar() {
         console.error("Fullscreen API is not supported on this browser.");
       }
     }
+    </script>
+ <button class="toggle-btn"><i class="fa fa-bars"></i></button>
   `;
-  // Create a div element to hold the navbar
+
   const navbarDiv = document.createElement('div');
   navbarDiv.innerHTML = navbarHTML;
 
   // Insert the navbar at the top of the body
   const body = document.body;
   body.insertBefore(navbarDiv, body.firstChild);
+
+  // Add event listener for the toggle button after inserting the navbar
+  const toggleBtn = document.querySelector('.toggle-btn');
+  const sidebar = document.querySelector('.navbar');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('show');
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  insertNavbar();
+  insertNavbar(); // Insert navbar after DOM is ready
 });
 function buffedAB() {
   var myWindow1 = window.open(
