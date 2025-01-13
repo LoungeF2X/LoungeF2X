@@ -200,7 +200,6 @@ function insertNavbar() {
         toggleBtn.addEventListener('click', () => {
             sidebar.classList.toggle('show');
         });</script>
-        <button class="toggle-btn"><i class="fa fa-bars"></i></button>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div id="contextMenu" class="context-menu" style="display:none">
     <ul>
@@ -231,7 +230,7 @@ function insertNavbar() {
       </div>
     </div>
   </div>
-
+        <button class="toggle-btn"><i class="fa fa-bars"></i></button>
   <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
     new Crate({
       server: '1308263296511512647', // School Heaven
