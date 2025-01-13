@@ -130,6 +130,7 @@ function insertNavbar() {
             left: -250px;
             box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
             transition: left 0.4s ease;
+            z-index: 10000000000000;
         }
 
         .navbar.show {
