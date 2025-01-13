@@ -2,6 +2,56 @@
 function insertNavbar() {
   const navbarHTML = `
   <style type="text/css">
+        .item {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--index) * 0.2s);
+}
+.games-content {
+    overflow-y: auto !important;
+    max-height: 500px !important;
+    padding-right: 5px;
+}
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    width: 100%;
+    scrollbar-color: transparent transparent;
+}
+
+.game-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+    color: white
+    border: 2px solid red;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 200px;
+    text-align: center;
+}
+
+.game-container a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+@media (max-width: 600px) {
+    .game-container a {
+        width: 100%;
+    }
+}
           .secret-mode {
             color: red;
             animation: secret-glow 2s infinite alternate;
@@ -51,12 +101,40 @@ function insertNavbar() {
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: red;
+      margin: 10;
     }
+        .toggle-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .navbar {
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.4s ease;
+        }
 
-    .navbar {
-      overflow: hidden;
-      background-color: #333;
-    }
+        .navbar.show {
+            left: 0;
+        }
 
     .navbar a {
       float: left;
@@ -115,7 +193,14 @@ function insertNavbar() {
       display: block;
     }
   </style>
+          const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.navbar');
 
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });</script>
+        <button class="toggle-btn"><i class="fa fa-bars"></i></button>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div id="contextMenu" class="context-menu" style="display:none">
     <ul>
       <li onclick="openSettings('/')"><a>Home</a></li>
