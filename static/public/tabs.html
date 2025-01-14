@@ -210,6 +210,7 @@
     </div>
     <script>
 	    function goFullscreen() { 
+		    const element = document.querySelector('.tab-iframe.active')
       if (element.requestFullscreen) {
         element.requestFullscreen().catch((err) => {
           console.error(`Failed to enter fullscreen mode: \${err.message}`);
