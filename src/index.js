@@ -89,7 +89,7 @@ server.on("upgrade", (req, socket, head) => {
   }
 });
 
-const port = 3001;
+const port = 3000;
 
 server.on("listening", () => {
   const address = server.address();
