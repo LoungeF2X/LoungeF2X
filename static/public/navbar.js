@@ -1,57 +1,47 @@
 // Function to create and insert the navbar
 function insertNavbar() {
+  // Define the HTML for the navbar
   const navbarHTML = `
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JC8E4VJGL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JC8E4VJGL9');
+</script>
+      <script src="/rightclick.js"></script>
+  <div id="contextMenu" class="context-menu" style="display:none">
+    <ul>
+      <li onclick="openSettings('/')"><a>Home</a></li>
+      <li onclick="openSettings('/proxy.html')"><a>Proxy</a></li>
+      <li onclick="cloakAll()"><a>Cloak Tab</a></li>
+    </ul>
+  </div>
   <style type="text/css">
+  #particles-js {
+    position: fixed;  /* Keeps it full-screen even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: -1;  /* Ensures it stays behind everything */
+}
+
+#main {
+    position: relative;  /* Ensures content appears above the particles */
+    z-index: 1;  /* Moves content in front of particles */
+}
+
         .item {
     opacity: 0;
     transform: translateY(10px);
     animation: fadeIn 0.5s ease forwards;
     animation-delay: calc(var(--index) * 0.2s);
 }
-.games-content {
-    overflow-y: auto !important;
-    max-height: 500px !important;
-    padding-right: 5px;
-}
-.game-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 10px;
-    width: 100%;
-    scrollbar-color: transparent transparent;
-}
 
-.game-container a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background-color: white;
-    color: white
-    border: 2px solid red;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 200px;
-    text-align: center;
-}
-
-.game-container a:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--accent-color);
-}
-
-@media (max-width: 600px) {
-    .game-container a {
-        width: 100%;
-    }
-}
           .secret-mode {
             color: red;
             animation: secret-glow 2s infinite alternate;
@@ -73,6 +63,7 @@ function insertNavbar() {
       border-radius: 25px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
       padding: 10px;
+      z-index: 1000;
     }
 
     .context-menu ul {
@@ -101,134 +92,141 @@ function insertNavbar() {
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: red;
-      margin: 10;
     }
-        .toggle-btn {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 10px 20px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            z-index: 1000;
-            transition: background 0.3s ease;
-            z-index: 10000000000001;
-        }
-        .navbar {
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            position: fixed;
-            top: 0;
-            left: -250px;
-            box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
-            transition: left 0.4s ease;
-            z-index: 10000000000000;
-        }
+      #main {
+      margin: 100px;
+      }
+.navbar {
+    position: fixed;  /* Keeps it stuck at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #333;
+    display: flex;  /* Uses flexbox for better alignment */
+    align-items: center;
+    justify-content: space-between; /* Ensures left & right sections stay apart */
+    padding: 0 16px;
+    z-index: 10000000000000000;
+}
 
-        .navbar.show {
-            left: 0;
-        }
+.navbar .left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo & text */
+}
 
-    .navbar a {
-      float: left;
-      font-size: 16px;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
+.navbar .right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
 
-    .dropdown {
-      float: left;
-      z-index: 1;
-      overflow: hidden;
-    }
+  .right-section a {
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+.navbar .left-section a {
+  font-size: 16px;
+    color: red;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.right-section a:hover {
+    background-color: red;
+}
 
-    .dropdown .dropbtn {
-      font-size: 16px;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
-    }
+.navbar img {
+    width: 40px;  /* Resize logo */
+    height: auto;  /* Keep aspect ratio */
+    object-fit: contain;
+}
 
-    .navbar a:hover,
-    .dropdown:hover .dropbtn {
-      background-color: red;
-    }
+.navbar p {
+    font-size: 20px;
+    color: red;
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
+.dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+}
 
-    .dropdown-content a {
-      float: none;
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+}
 
-    .dropdown-content a:hover {
-      background-color: #ddd;
-    }
+.right-section a:hover,
+.dropdown:hover .dropbtn {
+    background-color: red;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;  /* Ensures it appears below the navbar */
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;  /* Ensures it stays above other content */
+}
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;  /* Enables flexbox */
+    justify-content: center;  /* Centers text horizontally */
+    align-items: center;  /* Centers text vertically */
+    text-align: center;  /* Ensures text stays centered */
+    height: 40px;  /* Adjust height to control vertical centering */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <div id="contextMenu" class="context-menu" style="display:none">
-    <ul>
-      <li onclick="openSettings('/')"><a>Home</a></li>
-      <li onclick="openSettings('/proxy')"><a>Proxy</a></li>
-      <li onclick="cloakAll()"><a>Cloak Tab</a></li>
-    </ul>
-  </div>
 
   <div class="navbar">
-    <a href="/index2.html">Home</a>
-    <a href="/g">Games</a>
-    <a href="/tabs.html">Tabs (WIP)</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/settings.html">Settings</a>
-    <a href="/category/shooting.html">Shooting</a>
-    <a href="/category/apps.html">Apps</a>
-    <div class="dropdown">
-      <button class="dropbtn">
-        Popular Games
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="/page/1v1lol.html">1v1.lol</a>
-        <a href="/app/geforce.html">Fortnite</a>
-        <a href="/page/bloxro.html">Roblox</a>
-        <a href="/page/taggame.html">Tag Game</a>
-      </div>
+      <div class="left-section">
+    <a href="/"><img src="/images/l2x.png"></a>
+    <a href="/"><p>LoungeF2X</p></a>
     </div>
+    <div class="right-section">
+    <a href="/index.html">Home</a>
+    <a href="/g.html">Games</a>
+    <a href="/m.html">Movies</a>
+    <a href="/tabs.html">Browser</a>
+    <a href="/ia.html">AI</a>        
+    <a href="/settings.html">Settings</a>
+</div>
   </div>
+
   <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
     new Crate({
-      server: '1308263296511512647', // School Heaven
-      channel: '1308263296981270552' // #general
+      server: '1262606858846208052',
+      channel: '1262606858846208055'
     })
   </script>
   <script>
@@ -251,10 +249,8 @@ function insertNavbar() {
         console.error("Fullscreen API is not supported on this browser.");
       }
     }
-    </script>
- <button class="toggle-btn"><i class="fa fa-bars"></i></button>
+      </script>
   `;
-
   const navbarDiv = document.createElement('div');
   navbarDiv.innerHTML = navbarHTML;
 
@@ -262,34 +258,9 @@ function insertNavbar() {
   const body = document.body;
   body.insertBefore(navbarDiv, body.firstChild);
 
-  // Add event listener for the toggle button after inserting the navbar
-  const toggleBtn = document.querySelector('.toggle-btn');
-  const sidebar = document.querySelector('.navbar');
-
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('show');
-  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  insertNavbar(); // Insert navbar after DOM is ready
+    insertNavbar();  // Insert navbar after DOM is ready
 });
-function buffedAB() {
-  var myWindow1 = window.open(
-    "",
-    "myWindow1",
-    "scrollbars=1,height=" + screen.availHeight + ",width=" + screen.availWidth,
-  );
-  myWindow1.document.write(
-    '<!DOCTYPE html>\n\
-<title>Classes</title>   <link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png"/><link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png"/>\n\
-<p><iframe src="' +
-      "https://" +
-      window.location.host +
-      '"frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%">\n\
-<script>\n\
-alert("");\n\
-<\x2fscript>',
-  );
-  location.replace("https://classroom.google.com");
-}
+

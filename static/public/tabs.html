@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="/tabcloaker.js"></script>
-    <script>document.addEventListener("DOMContentLoaded", (event) => { cloakAll(); });</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            cloakAll();
+
+    const savedURL = localStorage.getItem("url");
+    const Url = decodeURIComponent(savedURL);
+    if (savedURL) {
+        const firstIframe = document.querySelector(".tab-iframe.active");
+        if (firstIframe) {
+            firstIframe.src = `${Url}`;
+            localStorage.removeItem("url");
+        }
+    }
+});
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JC8E4VJGL9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -17,177 +31,177 @@
     </script>
     <style>
 
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body, html {
-            height: 100%;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        .tabs {
-            display: flex;
-            align-items: center;
-            background-color: #222;
-            border-bottom: 2px solid #FF0000;
-            overflow: hidden;
-            white-space: nowrap;
-            transition: transform 0.5s ease-in-out;
-        }
-        .tab {
-            display: flex;
-            align-items: center;
-            padding: 5px 10px;
-            color: #ccc;
-            cursor: pointer;
-            position: relative;
-            background-color: #333;
-            border-right: 1px solid #555;
-            transition: background-color 0.3s;
-            flex-shrink: 1;
-            max-width: 150px;
-            overflow: hidden;
-            border-radius: 5px;
-            text-overflow: ellipsis;
-        }
-        .tab.active {
-            background-color: #444;
-            color: #FF0000;
-        }
-        .tab:hover {
-            background-color: #555;
-        }
-        .tab .close-button {
-            margin-left: 5px;
-            color: #ccc;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .tab .close-button:hover {
-            color: #262626;
-        }
-        .add-tab-button {
-            padding: 10px;
-            cursor: pointer;
-            background-color: #333;
-            color: #FF0000;
-            border: none;
-            outline: none;
-            font-size: 20px;
-        }
-        .navbarmain {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #333;
-            padding: 10px;
-            width: 100%;
-            border-bottom: 2px solid #FF0000;
-            transition: transform 0.5s ease-in-out;
-        }
-        .navbarmain-left {
-            display: flex;
-            gap: 10px;
-        }
-        .navbarmain button {
-            background: transparent;
-            border: none;
-            color: #FF0000;
-            cursor: pointer;
-            font-size: 20px;
-        }
-        .navbarmain button:hover {
-            color: #fff;
-        }
-        .search-bar {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            border-radius: 25px;
-            background-color: #000;
-            border: 2px solid #FF0000;
-            overflow: hidden;
-            height: 30px;
-          margin-left: 20px;
-        }
-        .search-bar input {
-            flex-grow: 1;
-            padding: 10px;
-            border: none;
-            background-color: transparent;
-            color: #ccc;
-            font-size: 16px;
-        }
-        .search-bar input:focus {
-            outline: none;
-        }
-        .search-bar button {
-            background-color: #FF0000;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #000;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            border-radius: 0 25px 25px 0;
-        }
-        .search-bar button i {
-            margin-left: 5px;
-        }
-        .content-wrapper {
-            flex-grow: 1;
-            overflow: hidden;
-            position: relative;
-            height: 100%;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: none;
-        }
-        iframe.active {
-            display: block;
-        }
-        .hide-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            font-size: 30px;
-            color: #FF0000;
-            cursor: pointer;
-            z-index: 1001;
-        }
-	.navbar.hidden, .tabs.hidden {
-	    transform: translateY(-200%);
-        }
-        .show-navbar-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-            display: none;
-            z-index: 2000;
-        }
-        .show-navbar-button i {
-            color: #FF0000;
-        }
-    
-    </style>
+        * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                body, html {
+                    height: 100%;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .tabs {
+                    display: flex;
+                    align-items: center;
+                    background-color: #222;
+                    border-bottom: 2px solid #FF0000;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    transition: transform 0.5s ease-in-out;
+                }
+                .tab {
+                    display: flex;
+                    align-items: center;
+                    padding: 5px 10px;
+                    color: #ccc;
+                    cursor: pointer;
+                    position: relative;
+                    background-color: #333;
+                    border-right: 1px solid #555;
+                    transition: background-color 0.3s;
+                    flex-shrink: 1;
+                    max-width: 150px;
+                    overflow: hidden;
+                    border-radius: 5px;
+                    text-overflow: ellipsis;
+                }
+                .tab.active {
+                    background-color: #444;
+                    color: #FF0000;
+                }
+                .tab:hover {
+                    background-color: #555;
+                }
+                .tab .close-button {
+                    margin-left: 5px;
+                    color: #ccc;
+                    cursor: pointer;
+                    font-size: 14px;
+                }
+                .tab .close-button:hover {
+                    color: #262626;
+                }
+                .add-tab-button {
+                    padding: 10px;
+                    cursor: pointer;
+                    background-color: #333;
+                    color: #FF0000;
+                    border: none;
+                    outline: none;
+                    font-size: 20px;
+                }
+                .navbarmain {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: #333;
+                    padding: 10px;
+                    width: 100%;
+                    border-bottom: 2px solid #FF0000;
+                    transition: transform 0.5s ease-in-out;
+                }
+                .navbarmain-left {
+                    display: flex;
+                    gap: 10px;
+                }
+                .navbarmain button {
+                    background: transparent;
+                    border: none;
+                    color: #FF0000;
+                    cursor: pointer;
+                    font-size: 20px;
+                }
+                .navbarmain button:hover {
+                    color: #fff;
+                }
+                .search-bar {
+                    flex-grow: 1;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 25px;
+                    background-color: #000;
+                    border: 2px solid #FF0000;
+                    overflow: hidden;
+                    height: 30px;
+                  margin-left: 20px;
+                }
+                .search-bar input {
+                    flex-grow: 1;
+                    padding: 10px;
+                    border: none;
+                    background-color: transparent;
+                    color: #ccc;
+                    font-size: 16px;
+                }
+                .search-bar input:focus {
+                    outline: none;
+                }
+                .search-bar button {
+                    background-color: #FF0000;
+                    border: none;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    color: #000;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 0 25px 25px 0;
+                }
+                .search-bar button i {
+                    margin-left: 5px;
+                }
+                .content-wrapper {
+                    flex-grow: 1;
+                    overflow: hidden;
+                    position: relative;
+                    height: 100%;
+                }
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    display: none;
+                }
+                iframe.active {
+                    display: block;
+                }
+                .hide-button {
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 30px;
+                    color: #FF0000;
+                    cursor: pointer;
+                    z-index: 1001;
+                }
+            .navbar.hidden, .tabs.hidden {
+                transform: translateY(-200%);
+                }
+                .show-navbar-button {
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 30px;
+                    color: white;
+                    cursor: pointer;
+                    display: none;
+                    z-index: 2000;
+                }
+                .show-navbar-button i {
+                    color: #FF0000;
+                }
+            
+            </style>
 </head>
 <body>
     <div class="tabs" id="tabs">
-        <div class="tab active" onclick="selectTab(this)">New Tab <span class="close-button" onclick="closeTab(event, this)">×</span></div>
+        <div class="tab active" onclick="selectTab(this)">Google<span class="close-button" onclick="closeTab(event, this)">×</span></div>
         <button class="add-tab-button" onclick="addTab()">+</button>
     </div>
     <div class="navbarmain" id="navbar">
@@ -196,7 +210,8 @@
             <button onclick="document.querySelector('.tab-iframe.active').contentWindow.history.back()"><i class="fas fa-arrow-left"></i></button>
             <button onclick="document.querySelector('.tab-iframe.active').contentWindow.history.forward()"><i class="fas fa-arrow-right"></i></button>
             <button onclick="document.querySelector('.tab-iframe.active').contentWindow.location.reload()"><i class="fas fa-redo"></i></button>
-	    <button onclick="goFullscreen()"><i class="fa-solid fa-expand"></i></button>
+            <button onclick="goFullscreen()"><i class="fa-solid fa-expand"></i></button>
+            <button onclick="eToggle()"><i class="fa-solid fa-code"></i></button>
         </div>
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Search or enter a URL" onkeydown="if(event.key === 'Enter') search()">
@@ -209,8 +224,9 @@
         <iframe class="tab-iframe active" src="/embed.html#https://google.com" id="iframe-1"></iframe>
     </div>
     <script>
-	    function goFullscreen() { 
-		    const element = document.querySelector('.tab-iframe.active')
+        	    function goFullscreen() {
+	 const element = document.querySelector('.tab-iframe.active')
+	    
       if (element.requestFullscreen) {
         element.requestFullscreen().catch((err) => {
           console.error(`Failed to enter fullscreen mode: \${err.message}`);
@@ -226,6 +242,7 @@
       } else {
         console.error("Fullscreen API is not supported on this browser.");
       }
+    
     }
         let tabCount = 1;
 
@@ -244,7 +261,7 @@
             tabElement.textContent = title.substring(0, 15);
             tabElement.innerHTML += ' <span class="close-button" onclick="closeTab(event, this)">×</span>';
         } catch (error) {
-            tabElement.textContent = 'Loading...';
+            tabElement.textContent = 'Google';
             tabElement.innerHTML += ' <span class="close-button" onclick="closeTab(event, this)">×</span>';
         }
     });
@@ -253,7 +270,7 @@
 
     iframe.onload = () => {
         try {
-            const title = iframe.contentWindow.document.title || 'New Tab';
+            const title = iframe.contentWindow.document.title || 'Google';
             tabElement.textContent = title.substring(0, 15);
             tabElement.innerHTML += ' <span class="close-button" onclick="closeTab(event, this)">×</span>';
 
@@ -270,26 +287,28 @@
             };
 
         } catch (error) {
-            tabElement.textContent = 'New Tab';
+            tabElement.textContent = 'Loading...';
             tabElement.innerHTML += ' <span class="close-button" onclick="closeTab(event, this)">×</span>';
         }
     };
 }
 
-function addTab() {
+function addTab(url) {
     tabCount++;
     const tabsContainer = document.getElementById('tabs');
     const iframe = document.createElement('iframe');
-    const newTab = document.createElement('div');
+            const newTab = document.createElement('div');
     newTab.classList.add('tab');
     newTab.textContent = "Loading...";
     newTab.innerHTML += ' <span class="close-button" onclick="closeTab(event, this)">×</span>';
     newTab.onclick = () => selectTab(newTab);
     tabsContainer.insertBefore(newTab, document.querySelector('.add-tab-button'));
-    
+    if (!url) {
+        url = "https://google.com"
+    }
     iframe.classList.add('tab-iframe');
     iframe.id = `iframe-${tabCount}`;
-    iframe.src = '/embed.html#https://google.com';
+    iframe.src = `/embed.html#${url}`;
     document.getElementById('content-wrapper').appendChild(iframe);
 
     // Observe iframe changes and update the tab name
@@ -311,7 +330,7 @@ function addTab() {
         function updateTabName(iframe, tabElement) {
             iframe.onload = () => {
                 try {
-                    const title = iframe.contentWindow.document.title || 'New Tab';
+                    const title = iframe.contentWindow.document.title || 'Google';
                     tabElement.textContent = title.substring(0, 15);
                     tabElement.innerHTML += ' <span class="close-button" onclick="closeTab(event, this)">×</span>';
                 } catch (error) {
@@ -321,7 +340,8 @@ function addTab() {
             };
         }
         function search() {
-    const input = document.getElementById('search-input').value.trim();
+    const inputElement = document.getElementById('search-input');
+    const input = inputElement.value.trim();
     const activeIframe = document.querySelector('.tab-iframe.active');
 
     if (!input) return; // Do nothing if the input is empty.
@@ -358,14 +378,55 @@ function addTab() {
 
     // Redirect to appropriate iframe source
     activeIframe.src = url.startsWith("http") ? `/embed.html#${url}` : url;
-}
-
+	}
         function home() {
-	const homeIframe = document.querySelector('.tab-iframe.active');
-	const inputElement = document.getElementById('search-input');
-	inputElement.value = ''; 
-        homeIframe.src = '/embed.html#https://google.com';
+window.location.href = "/"
         }
+        
+function eToggle() {
+  const activeIframe = document.querySelector(".tab-iframe.active");
+  if (!activeIframe) {
+    console.error("No active iframe found");
+    return;
+  }
+  const erudaWindow = activeIframe.contentWindow;
+  if (!erudaWindow) {
+    console.error("No content window found for the active iframe");
+    return;
+  }
+  if (erudaWindow.eruda) {
+    if (erudaWindow.eruda._isInit) {
+      erudaWindow.eruda.destroy();
+    } else {
+      console.error("Eruda is not initialized in the active iframe");
+      erudaWindow.eruda.init();
+      erudaWindow.eruda.show();
+    }
+  } else {
+    const erudaDocument = activeIframe.contentDocument;
+    if (!erudaDocument) {
+      console.error("No content document found for the active iframe");
+      return;
+    }
+    const script = erudaDocument.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/eruda";
+    script.onload = () => {
+      if (!erudaWindow.eruda) {
+        console.error("Failed to load Eruda in the active iframe");
+        return;
+      }
+      erudaWindow.eruda.init();
+      erudaWindow.eruda.show();
+    };
+    erudaDocument.head.appendChild(script);
+  }
+}
     </script>
+	  <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+    new Crate({
+      server: '1262606858846208052',
+      channel: '1262606858846208055',
+      location: ['bottom', 'right'] })
+  </script>
 </body>
 </html>

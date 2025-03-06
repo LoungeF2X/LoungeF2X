@@ -1,9 +1,37 @@
 "use strict";
 
+// Service Worker Registration
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/l2x/uv-sw.js")
+    .then(() => {
+      console.log("Service Worker Registered Successfully");
+    })
+    .catch((err) => {
+      console.error("Failed to register Service Worker:", err);
+    });
+} else {
+  console.warn("Service Worker not supported in this browser.");
+}
+
+/**
+ * @type {HTMLFormElement}
+ */
 const form = document.getElementById("uv-form");
+/**
+ * @type {HTMLInputElement}
+ */
 const address = document.getElementById("uv-address");
+/**
+ * @type {HTMLInputElement}
+ */
 const searchEngine = document.getElementById("uv-search-engine");
+/**
+ * @type {HTMLParagraphElement}
+ */
 const error = document.getElementById("uv-error");
+/**
+ * @type {HTMLPreElement}
+ */
 const errorCode = document.getElementById("uv-error-code");
 
 form.addEventListener("submit", async (event) => {
@@ -12,29 +40,43 @@ form.addEventListener("submit", async (event) => {
   try {
     await registerSW();
   } catch (err) {
-    error.textContent = "Failed to register service worker.";
     errorCode.textContent = err.toString();
+    error.textContent = "Failed to register service worker.";
     throw err;
   }
 
   const url = search(address.value, searchEngine.value);
   const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
   localStorage.setItem("url", `${encodeURIComponent(encodedUrl)}`);
-  window.location.href = `/reading/`;
+  window.location.href = `/tabs.html`;
 });
 
-function search(value, searchEngine) {
-  let url = value.trim();
-
-  if (!isUrl(url)) {
-    url = searchEngine.replace('%s', encodeURIComponent(url));
-  } else if (!(url.startsWith("https://") || url.startsWith("http://"))) {
-    url = "http://" + url;
+async function launchURL(openURL) {
+  try {
+    await registerSW();
+  } catch (err) {
+    error.textContent = "Failed to register service worker.";
+    errorCode.textContent = err.toString();
+    throw err;
   }
 
-  return url;
+  const url = search(openURL, searchEngine.value);
+  localStorage.setItem("url", `${encodeURIComponent(encodedUrl)}`);
+  window.location.href = `/tabs.html`;
 }
 
-function isUrl(val = "") {
-  return /^http(s?):\/\//.test(val) || (val.includes(".") && val.slice(0, 1) !== " ");
+
+async function launchGame(openURL) {
+  try {
+    await registerSW();
+  } catch (err) {
+    error.textContent = "Failed to register service worker.";
+    errorCode.textContent = err.toString();
+    throw err;
+  }
+
+  const url = search(openURL, searchEngine.value);
+  const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
+  localStorage.setItem("url", `${encodeURIComponent(encodedUrl)}`);
+  window.location.href = `/tabs.html`;
 }
