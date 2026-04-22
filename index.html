@@ -1387,26 +1387,62 @@
             .then(function (html) {
               var base = gameDirectoryBase(gameUrl);
               html = ensureHtmlBase(html, base);
-              var doc = frame.contentWindow && frame.contentWindow.document;
-              if (!doc) throw new Error("Could not access iframe document");
-              doc.open();
-              doc.write(html);
-              doc.close();
+              frame.src =
+                "data:text/html;charset=utf-8," + encodeURIComponent(html);
             })
             .catch(function (err) {
               console.error(err);
               titleEl.textContent = "Load error";
-              if (frame.contentWindow && frame.contentWindow.document) {
-                var doc = frame.contentWindow.document;
-                doc.open();
-                doc.write(
+              frame.src =
+                "data:text/html;charset=utf-8," +
+                encodeURIComponent(
+                  "<body style='margin:0;background:#111;color:#f88;font-family:sans-serif;padding:20px'>" +
+                    "<p>Could not load this game from jsDelivr.</p>" +
+                    "<p style='color:#aaa;font-size:14px'>If you opened this file from disk, try hosting LoungeF2X.html on HTTPS.</p>" +
+                    "</body>"
+                );
+            });
+        }
+
+        function openGameFromLocalFile(gameUrl, titleText) {
+          var w = window.open("about:blank", "_blank");
+          if (!w) {
+            openGameInFrame(gameUrl, titleText);
+            return;
+          }
+          w.document.title = titleText || "Game";
+          w.document.body.style.margin = "0";
+          w.document.body.style.background = "#000";
+          w.document.body.innerHTML =
+            "<div style='color:#bbb;font-family:Arial,sans-serif;padding:12px'>Loading game…</div>";
+
+          fetch(gameUrl, { mode: "cors", credentials: "omit" })
+            .then(function (r) {
+              if (!r.ok) throw new Error("HTTP " + r.status);
+              return r.text();
+            })
+            .then(function (html) {
+              var base = gameDirectoryBase(gameUrl);
+              html = ensureHtmlBase(html, base);
+              w.document.open();
+              w.document.write(html);
+              w.document.close();
+            })
+            .catch(function (err) {
+              console.error(err);
+              try {
+                // Last-resort fallback to avoid staying stuck on about:blank.
+                w.location.href = gameUrl;
+              } catch (_navErr) {
+                w.document.open();
+                w.document.write(
                   "<body style='margin:0;background:#111;color:#f88;font-family:sans-serif;padding:20px'>" +
                     "<p>Could not load this game from jsDelivr.<" + "/p>" +
-                    "<p style='color:#aaa;font-size:14px'>If you opened this file from disk, try hosting LoungeF2X.html on HTTPS.<" +
+                    "<p style='color:#aaa;font-size:14px'>Try opening LoungeF2X.html through a local HTTPS server for best compatibility.<" +
                     "/p><" +
                     "/body>"
                 );
-                doc.close();
+                w.document.close();
               }
             });
         }
