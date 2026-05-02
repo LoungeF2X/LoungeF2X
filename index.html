@@ -1291,7 +1291,7 @@
         var m = document.querySelector('meta[name="lounge-cdn-base"]');
         var fromMeta = m && m.getAttribute("content") ? m.getAttribute("content").trim() : "";
         if (fromMeta) return fromMeta.endsWith("/") ? fromMeta : fromMeta + "/";
-        var LOUNGE_CDN_STATIC = "https://cdn.jsdelivr.net/gh/LISPlaysYT/L oungeF2X-games@main/static/";
+        var LOUNGE_CDN_STATIC = "https://cdn.jsdelivr.net/gh/LISPlaysYT/LoungeF2X-games@main/static/";
         return LOUNGE_CDN_STATIC;
       }
       window.LOUNGE_CDN_STATIC = getCdnBase();
