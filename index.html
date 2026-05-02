@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Optional: override CDN base (must end with / and point at the "static" folder on jsDelivr) -->
   <meta name="lounge-cdn-base" content="">
   <title>LoungeF2X</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -289,6 +290,7 @@
       #view-music.music-shell .search-section { justify-content: center; }
       #view-music.music-shell .tagline-link { max-width: 100%; }
     }
+    /* AI (L2X-GPT) */
     #view-ai .roddyrichhesbox {
       background: rgba(50,50,50,.85); border-radius: 20px; padding: 24px;
       box-shadow: 0 4px 30px rgba(0,0,0,.6); max-width: 960px; margin: 12px auto;
@@ -337,6 +339,7 @@
       .ia-layout { flex-direction: column; }
       .session-list { max-height: 120px; }
     }
+    /* Zone Viewer */
     .zone-viewer {
       position: fixed;
       top: 0;
@@ -396,6 +399,7 @@
 .music-section {
   margin-bottom: 3rem;
 }
+
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -404,6 +408,7 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
+
 .music-search-container {
   width: 100%;
   max-width: 560px;
@@ -411,6 +416,7 @@
   position: relative;
   z-index: 100;
 }
+
 .music-search-input {
   width: 100%;
   padding: 12px 20px;
@@ -423,14 +429,17 @@
   outline: none;
   transition: all 0.3s ease;
 }
+
 .music-search-input::placeholder {
   color: #ffb3b7;
 }
+
 .music-search-input:focus {
   border-color: #e50914;
   box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.25);
   background: rgba(229, 9, 20, 0.16);
 }
+
 .search-results {
   width: 100%;
   max-height: 400px;
@@ -448,11 +457,13 @@
   border: 2px solid #7a1b22;
   box-shadow: 0 8px 25px rgba(229, 9, 20, 0.28);
 }
+
 .search-results.active {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
 }
+
 .result-item {
   display: flex;
   align-items: center;
@@ -461,9 +472,11 @@
   transition: background 0.3s;
   overflow: hidden;
 }
+
 .result-item:hover {
   background: rgba(229, 9, 20, 0.14);
 }
+
 .result-img {
   width: 50px;
   height: 50px;
@@ -472,14 +485,17 @@
   margin-right: 12px;
   flex-shrink: 0;
 }
+
 .result-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .result-info {
   flex: 1;
 }
+
 .result-title {
   font-weight: 600;
   margin-bottom: 4px;
@@ -489,10 +505,12 @@
   color: #e8f2ff;
   font-size: 14px;
 }
+
 .result-artist {
   font-size: 12px;
   color: #ffb3b7;
 }
+
 .music-main-container {
   display: flex;
   justify-content: space-between;
@@ -502,6 +520,7 @@
   gap: 20px;
   align-items: flex-start;
 }
+
 .player {
   flex: 1;
   display: flex;
@@ -513,6 +532,7 @@
   border: 2px solid #7a1b22;
   box-shadow: 0 8px 25px rgba(229, 9, 20, 0.28);
 }
+
 .album-art {
   flex: 0 0 250px;
   height: 250px;
@@ -525,11 +545,13 @@
   position: relative;
   border: 2px solid #7a1b22;
 }
+
 .album-art i {
   font-size: 120px;
   color: #e50914;
   position: absolute;
 }
+
 .album-art img {
   width: 100%;
   height: 100%;
@@ -537,6 +559,7 @@
   position: relative;
   z-index: 1;
 }
+
 .info {
   flex: 1;
   display: flex;
@@ -544,6 +567,9 @@
   justify-content: center;
   position: relative;
 }
+
+
+
 .track-title {
   font-size: 32px;
   font-weight: 700;
@@ -554,6 +580,7 @@
   max-width: 350px;
   color: #e8f2ff;
 }
+
 .artist {
   font-size: 18px;
   color: #ffb3b7;
@@ -563,6 +590,7 @@
   text-overflow: ellipsis;
   max-width: 350px;
 }
+
 .controls {
   display: flex;
   flex-direction: column;
@@ -570,10 +598,12 @@
   gap: 8px;
   margin-bottom: 18px;
 }
+
 .control-row {
   display: flex;
   gap: 6px;
 }
+
 .controls i {
   font-size: 18px;
   cursor: pointer;
@@ -589,14 +619,17 @@
   align-items: center;
   justify-content: center;
 }
+
 .controls i:hover {
   background: rgba(229, 9, 20, 0.22);
   border-color: #e50914;
   transform: scale(1.1);
 }
+
 .controls i:active {
   transform: scale(0.95);
 }
+
 .seekbar {
   height: 6px;
   background: rgba(229, 9, 20, 0.12);
@@ -606,15 +639,18 @@
   transition: height 0.2s ease;
   border: 1px solid #7a1b22;
 }
+
 .seekbar.active {
   height: 8px;
 }
+
 #progress {
   height: 100%;
   width: 0%;
   background: linear-gradient(45deg, #7a1b22, #e50914);
   border-radius: 3px;
 }
+
 .timecodes {
   display: flex;
   justify-content: space-between;
@@ -622,6 +658,7 @@
   color: #ffb3b7;
   margin-top: 4px;
 }
+
 .favorites-column {
   width: 35%;
   max-width: 400px;
@@ -636,17 +673,21 @@
   overflow-y: auto;
   box-shadow: 0 8px 25px rgba(229, 9, 20, 0.28);
 }
+
 .favorites-column::-webkit-scrollbar {
   width: 6px;
 }
+
 .favorites-column::-webkit-scrollbar-track {
   background: rgba(229, 9, 20, 0.08);
   border-radius: 3px;
 }
+
 .favorites-column::-webkit-scrollbar-thumb {
   background: #e50914;
   border-radius: 3px;
 }
+
 .favorites-title {
   font-size: 16px;
   font-weight: 600;
@@ -654,11 +695,13 @@
   text-align: center;
   color: #e8f2ff;
 }
+
 #favoritesList {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 .favorite-item {
   display: flex;
   flex-direction: row;
@@ -668,32 +711,40 @@
   transition: background 0.3s;
   border-radius: 8px;
 }
+
 .favorite-item:hover {
   background: rgba(229, 9, 20, 0.14);
 }
+
 .favorite-item .result-img {
   width: 40px;
   height: 40px;
   margin-right: 10px;
 }
+
 .favorite-item .result-info {
   flex: 1;
 }
+
 .favorite-item .result-title {
   font-size: 10px;
 }
+
 .favorite-item .result-artist {
   font-size: 8px;
 }
+
 .favorite-item .remove-fav {
   font-size: 12px;
   color: #ffb3b7;
   margin-left: 10px;
   transition: all 0.3s ease;
 }
+
 .favorite-item .remove-fav:hover {
   color: #e50914;
 }
+
 .favorite-item .skip-prev,
 .favorite-item .skip-next {
   font-size: 12px;
@@ -701,10 +752,12 @@
   margin-left: 5px;
   transition: all 0.3s ease;
 }
+
 .favorite-item .skip-prev:hover,
 .favorite-item .skip-next:hover {
   color: #e50914;
 }
+
 .play-favorites-btn {
   padding: 8px;
   font-size: 16px;
@@ -720,14 +773,17 @@
   justify-content: center;
   gap: 8px;
 }
+
 .play-favorites-btn:hover {
   background: rgba(229, 9, 20, 0.22);
   border-color: #e50914;
   transform: translateY(-2px);
 }
+
 .play-favorites-btn:active {
   transform: scale(0.95);
 }
+
 .lyrics-toggle {
   position: fixed;
   bottom: 20px;
@@ -746,15 +802,18 @@
   transition: all 0.3s ease;
   z-index: 100;
 }
+
 .lyrics-toggle:hover {
   background: rgba(229, 9, 20, 0.22);
   border-color: #e50914;
   transform: translateX(-50%) translateY(-2px);
 }
+
 .lyrics-toggle i {
   font-size: 16px;
   color: #e8f2ff;
 }
+
 .lyrics-info {
   flex: 1;
   display: none;
@@ -762,6 +821,7 @@
   justify-content: flex-start;
   padding-left: 0px;
 }
+
 .lyrics-content {
   max-height: 250px;
   overflow-y: auto;
@@ -772,17 +832,21 @@
   line-height: 1.6;
   color: #e8f2ff;
 }
+
 .lyrics-content::-webkit-scrollbar {
   width: 4px;
 }
+
 .lyrics-content::-webkit-scrollbar-track {
   background: rgba(229, 9, 20, 0.08);
   border-radius: 3px;
 }
+
 .lyrics-content::-webkit-scrollbar-thumb {
   background: #e50914;
   border-radius: 3px;
 }
+
 .lyric-line {
   transition: all 0.2s ease;
   color: #ffb3b7;
@@ -793,6 +857,7 @@
   line-height: 1.6;
   font-size: 12px;
 }
+
 .lyric-line.active {
   color: #e8f2ff;
   font-weight: bold;
@@ -800,28 +865,33 @@
   font-size: 14px;
   filter: blur(0px);
 }
+
 .lyric-line.next {
   color: #ccc;
   opacity: 0.7;
   filter: blur(0.6px);
 }
+
 .lyric-line.prev {
   color: #bbb;
   opacity: 0.55;
   filter: blur(1px);
 }
+
 .error-message {
   color: #ff6b6b;
   text-align: center;
   margin-top: 10px;
   font-size: 12px;
 }
+
 .loading {
   color: #e50914;
   text-align: center;
   padding: 10px;
   font-size: 12px;
 }
+
 #ytPlayer {
   position: absolute;
   top: 0;
@@ -830,76 +900,96 @@
   height: 1px;
   opacity: 0.01;
 }
+
 .search-results::-webkit-scrollbar {
   width: 6px;
 }
+
 .search-results::-webkit-scrollbar-track {
   background: rgba(229, 9, 20, 0.08);
   border-radius: 3px;
 }
+
 .search-results::-webkit-scrollbar-thumb {
   background: #e50914;
   border-radius: 3px;
 }
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .music-main-container {
     flex-direction: column;
     gap: 15px;
   }
+
   .player {
     flex-direction: column;
     padding: 20px;
   }
+
   .album-art {
     flex: none;
     width: 200px;
     height: 200px;
   }
+
   .album-art i {
     font-size: 80px;
   }
+
   .track-title {
     font-size: 24px;
     text-align: center;
     max-width: 100%;
   }
+
   .artist {
     font-size: 16px;
     text-align: center;
     max-width: 100%;
   }
+
   .favorites-column {
     width: 100%;
     max-width: none;
   }
+
   .info {
     text-align: center;
     width: 100%;
   }
 }
+
 @media (max-width: 480px) {
   .page-title {
     font-size: 2rem;
   }
+
   .music-search-container {
     max-width: 90%;
   }
+
   .player {
     padding: 15px;
   }
+
   .album-art {
     width: 150px;
     height: 150px;
   }
+
   .album-art i {
     font-size: 60px;
   }
+
   .track-title {
     font-size: 20px;
   }
+
   .artist {
     font-size: 14px;
   }
+
   .controls i {
     width: 35px;
     height: 35px;
@@ -922,6 +1012,7 @@
       <a href="#" data-nav="settings">Settings</a>
     </div>
   </nav>
+
   <div id="main-wrap">
     <section id="view-home" class="view active">
       <div class="hero">
@@ -937,6 +1028,7 @@
         <div class="game-container" id="game-container"></div>
       </div>
     </section>
+
     <div id="game-overlay" class="game-overlay">
       <div class="game-overlay-navbar">
         <span id="game-overlay-title">Game</span>
@@ -951,6 +1043,7 @@
         <iframe id="game-overlay-frame" title="Game" allowfullscreen></iframe>
       </div>
     </div>
+
     <div id="zoneViewer" class="zone-viewer">
       <div class="zone-header">
         <span id="zoneName">Zone</span>
@@ -962,6 +1055,7 @@
         <iframe id="zoneFrame" title="Zone Content"></iframe>
       </div>
     </div>
+
     <section id="view-music" class="view music-shell">
       <main class="main-content">
         <section class="music-section">
@@ -1028,6 +1122,7 @@
         </div>
       </footer>
     </section>
+
     <section id="view-ai" class="view">
       <div id="main-container" style="padding:12px">
         <div class="roddyrichhesbox">
@@ -1047,6 +1142,7 @@
         </div>
       </div>
     </section>
+
     <section id="view-settings" class="view settings-page">
       <div class="settings-grid">
         <div class="settings-card">
@@ -1079,6 +1175,7 @@
       </div>
     </section>
   </div>
+
   <script>
     window.LOUNGE_SPLASH = ["Did you know? You can make 800-1000 burgers from one cow.","Made 10% from actual code 90% skidded","Eat like a king who is on a budget","goodbye to all the fallen comrades","Approved by the Iranian ministry of health","AGE RATING 4+","Bebzi or Koka Kola","moni","Made proudly by U.S.A patriots.","The northernfish goes south","Fajr 5 heading to Tel Aviv.","uwu","uWu","OwO","UwU","Chocolate hummus is a disgrace to the entire middle east.","Fun fact: Your chromebook is likely being monitored 24/7","contains 100% all-natural chicken","contains 100% all-natural pork","contains 100% all-natural beef","You may be a victim of software counterfeiting","contains 100% all-natural lamb","Woe to those who don't use this game site","Whopper, Whopper, Whopper, Whopper,Junior, double, triple Whopper,Flame-grilled taste with perfect toppers,I rule this day.Lettuce, mayo, pickle, ketchup,It's OK if I don't want that, Impossible or bacon Whopper,Any Whopper my way.You rule, you're seizing the day,At BK, have it your way.You rule!","Did you know we are open source?","SUPR COL GAMS V2 IS AWESOME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!","Fun fact: Did you know that this site was originally a google site?","thank you to louis pasteur for inventing milk","you found the secret message","hi from lis","i know where you live","i","h"];
     window.LOUNGE_PARTICLES_CONFIG = {
@@ -1198,12 +1295,14 @@
         var m = document.querySelector('meta[name="lounge-cdn-base"]');
         var fromMeta = m && m.getAttribute("content") ? m.getAttribute("content").trim() : "";
         if (fromMeta) return fromMeta.endsWith("/") ? fromMeta : fromMeta + "/";
-        var LOUNGE_CDN_STATIC = "https://cdn.jsdelivr.net/gh/LISPlaysYT/LoungeF2X-games@main/static/";
+        /* === EDIT THIS after pushing the repo to GitHub (jsDelivr /gh/ path must include /static/) === */
+        var LOUNGE_CDN_STATIC = "https://cdn.jsdelivr.net/gh/LISPlaysYT/L oungeF2X-games@main/static/";
         return LOUNGE_CDN_STATIC;
       }
       window.LOUNGE_CDN_STATIC = getCdnBase();
       window.LOUNGE_MANIFEST_URL = window.LOUNGE_CDN_STATIC + "loungef2x-games-manifest.json";
       var loungeGameBlobUrl = null;
+
       function Help() {
         var x = localStorage.getItem("TabImage") || (window.LOUNGE_CDN_STATIC + "images/clever.jpg");
         var link = document.createElement("link");
@@ -1219,6 +1318,7 @@
         document.title = x && x !== "null" ? x : "Clever | Portal";
       }
       window.cloakAll = function () { Help1(); Help(); };
+
       function showView(id) {
         if (id !== "home") {
           var go = document.getElementById("game-overlay");
@@ -1263,12 +1363,14 @@
         }
         if (id === "home") window.scrollTo(0, 0);
       }
+
       document.querySelectorAll("[data-nav]").forEach(function (a) {
         a.addEventListener("click", function (e) {
           e.preventDefault();
           showView(a.getAttribute("data-nav"));
         });
       });
+
       document.addEventListener("DOMContentLoaded", function () {
         cloakAll();
         var logo = document.getElementById("nav-logo");
@@ -1285,14 +1387,18 @@
             particlesJS("particles-js", window.LOUNGE_PARTICLES_CONFIG);
           }
         } catch (e1) { console.warn(e1); }
+
         if (typeof TypeIt !== "undefined") {
           new TypeIt(".typing_desc", { speed: 90, waitUntilVisible: true, startDelay: 600 })
             .type("A place to play Games, LoungeF2X.").pause(400).go();
         }
+
         var sp = window.LOUNGE_SPLASH;
         if (sp && sp.length) {
           document.getElementById("splash").textContent = sp[Math.floor(Math.random() * sp.length)];
         }
+
+        /* Games from jsDelivr manifest */
         var gameContainer = document.getElementById("game-container");
         var gamesCount = document.getElementById("games-count");
         var search = document.getElementById("game-search");
@@ -1303,6 +1409,7 @@
         var banner = document.getElementById("cdn-status");
         var lastGameCdnUrl = null;
         var gameLoadToken = 0;
+
         function gameDirectoryBase(gameUrl) {
           try {
             var u = new URL(gameUrl);
@@ -1312,6 +1419,7 @@
             return gameUrl;
           }
         }
+
         function ensureHtmlBase(html, baseHref) {
           if (!html || /<base\s/i.test(html)) return html;
           var b = '<base href="' + baseHref.replace(/"/g, "&quot;") + '">';
@@ -1321,6 +1429,7 @@
           if (xm) return html.replace(xm[0], xm[0] + "<head>" + b + "<" + "/head>");
           return b + html;
         }
+
         function setGameOverlayUrl(url) {
           var wrap = document.querySelector(".game-overlay-frame-wrap");
           if (!wrap) return;
@@ -1338,6 +1447,7 @@
           el.textContent = url ? ("URL: " + url) : "";
           el.style.display = url ? "block" : "none";
         }
+
         function injectSrcdocUrlShim(html) {
           if (!html || /l2x-url-shim-v1/.test(html)) return html;
           var shim =
@@ -1348,13 +1458,18 @@
           if (xm) return html.replace(xm[0], xm[0] + "<head>" + shim + "<" + "/head>");
           return shim + html;
         }
+
+        // Define placeholder variables for openZone function
         const coverURL = window.LOUNGE_CDN_STATIC || "";
         const htmlURL = window.LOUNGE_CDN_STATIC || "";
         let zoneFrame;
         let zoneViewer = document.getElementById("zoneViewer");
+
         function openZone(file) {
+            // Load games in the iframe overlay (LoungeF2X behavior)
             openGameInFrame(file.url, file.name);
         }
+
         function openGameInFrame(gameUrl, titleText) {
           var token = ++gameLoadToken;
           lastGameCdnUrl = gameUrl;
@@ -1362,11 +1477,15 @@
           titleEl.textContent = titleText || "Game";
           setGameOverlayUrl(gameUrl);
           document.querySelector(".navbar").style.display = "none";
+
+          // Do NOT set frame.src to the game URL. Fetch the HTML, add a <base>
+          // tag so relative assets resolve, then write it into the same-tab iframe.
           frame.removeAttribute("src");
           frame.srcdoc =
             "<!doctype html><body style='margin:0;background:#000;color:#ccc;font-family:Arial,sans-serif;padding:16px'>Loading " +
             (titleText || "game") +
             "…</body>";
+
           fetch(gameUrl + (gameUrl.indexOf("?") === -1 ? "?" : "&") + "t=" + Date.now(), {
             mode: "cors",
             credentials: "omit",
@@ -1395,6 +1514,7 @@
                 "</body>";
             });
         }
+
         function openGameFromLocalFile(gameUrl, titleText) {
           var w = window.open("about:blank", "_blank");
           if (!w) {
@@ -1406,6 +1526,7 @@
           w.document.body.style.background = "#000";
           w.document.body.innerHTML =
             "<div style='color:#bbb;font-family:Arial,sans-serif;padding:12px'>Loading game…</div>";
+
           fetch(gameUrl, { mode: "cors", credentials: "omit" })
             .then(function (r) {
               if (!r.ok) throw new Error("HTTP " + r.status);
@@ -1421,6 +1542,7 @@
             .catch(function (err) {
               console.error(err);
               try {
+                // Last-resort fallback to avoid staying stuck on about:blank.
                 w.location.href = gameUrl;
               } catch (_navErr) {
                 w.document.open();
@@ -1435,30 +1557,35 @@
               }
             });
         }
+
         function encodePathSegments(rel) {
           if (!rel) return "";
           return rel
-            .replace(/^\)/, '')
+            .replace(/^\//, "")
             .split("/")
             .map(function (seg) {
               return encodeURIComponent(seg);
             })
             .join("/");
         }
+
         function absUrl(rel) {
           if (!rel) return "";
-  if (/^https?:\/\//.test(rel)) {
+          if (/^https?:\/\//i.test(rel)) return rel;
           return window.LOUNGE_CDN_STATIC + encodePathSegments(rel);
         }
+
         function updateGamesCount(visible, total) {
           if (gamesCount) gamesCount.textContent = "Games shown: " + visible + " / " + total;
         }
+
         function normalizeName(name) {
           name = (name || "Game").trim();
           name = name.replace(/\s+Play Now\s*→?\s*$/i, "").replace(/\s+Play Now\s*$/i, "");
           if (name.indexOf("…") !== -1) name = name.split("…")[0].trim();
           return name;
         }
+
         function imgSlugFromName(name) {
           name = normalizeName(name);
           return (
@@ -1469,15 +1596,18 @@
               .trim() || "game"
           );
         }
+
         function pushUniqueThumb(arr, rel) {
           if (!rel) return;
           if (arr.indexOf(rel) !== -1) return;
           arr.push(rel);
         }
+
         function sentenceCaseSlug(slug) {
           if (!slug || !slug.length) return slug;
           return slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase();
         }
+
         function pushThumbFilenameVariants(arr, dirParts, filename) {
           if (!filename) return;
           var prefix = dirParts.length ? dirParts.join("/") + "/" : "";
@@ -1500,15 +1630,16 @@
           pushStem(stem.toLowerCase());
           pushStem(sentenceCaseSlug(stem));
         }
+
         function setGameThumb(img, g, embedAbs, name) {
           var tries = [];
           var raw = (g.thumb || g.img || g.image || "").trim();
-          if (raw && !/^https?:\/\//.test(raw))
-var rel0 = raw.replace(/^\//, '');
-var segs = rel0.split("/");
+          if (raw && !/^https?:\/\//i.test(raw)) {
+            var rel0 = raw.replace(/^\//, "");
+            var segs = rel0.split("/");
             var file = segs.pop() || "";
             pushThumbFilenameVariants(tries, segs, file);
-          } if (raw) {
+          } else if (raw) {
             pushUniqueThumb(tries, raw);
           }
           var slugN = imgSlugFromName(name);
@@ -1553,6 +1684,7 @@ var segs = rel0.split("/");
           };
           img.src = absUrl(tries[0]);
         }
+
         function renderGames(list) {
           if (!gameContainer) return;
           gameContainer.innerHTML = "";
@@ -1562,7 +1694,7 @@ var segs = rel0.split("/");
             if (!url) return;
             var wrap = document.createElement("div");
             var a = document.createElement("a");
-            a.href = url; 
+            a.href = url; // Set the href attribute
             var img = document.createElement("img");
             img.alt = "";
             setGameThumb(img, g, url, name);
@@ -1578,6 +1710,7 @@ var segs = rel0.split("/");
           cards = Array.from(gameContainer.querySelectorAll("a"));
           updateGamesCount(cards.length, cards.length);
         }
+
         fetch(window.LOUNGE_MANIFEST_URL)
           .then(function (r) { return r.json(); })
           .then(function (data) {
@@ -1593,6 +1726,7 @@ var segs = rel0.split("/");
             }
             renderGames([]);
           });
+
         search.addEventListener("input", function () {
           var q = this.value.toLowerCase();
           var n = 0;
@@ -1605,6 +1739,7 @@ var segs = rel0.split("/");
           });
           updateGamesCount(n, cards.length);
         });
+
         document.addEventListener("click", function (e) {
           var link = e.target && e.target.closest ? e.target.closest(".game-container a") : null;
           if (!link) return;
@@ -1614,6 +1749,7 @@ var segs = rel0.split("/");
           const file = { url: link.href, name: t };
           openZone(file);
         });
+
         document.getElementById("game-btn-close").onclick = function () {
           overlay.style.display = "none";
           if (loungeGameBlobUrl) {
@@ -1652,6 +1788,7 @@ var segs = rel0.split("/");
           a.click();
           document.body.removeChild(a);
         };
+
         document.getElementById("zone-close-btn").onclick = function () {
           zoneViewer.style.display = "none";
           if (zoneFrame) {
@@ -1660,6 +1797,8 @@ var segs = rel0.split("/");
             zoneFrame.contentDocument.close();
           }
         };
+
+        /* Settings */
         document.getElementById("TabImage").addEventListener("submit", function (ev) {
           ev.preventDefault();
           var v = document.getElementById("TabImageInput").value.trim();
@@ -1705,7 +1844,7 @@ var segs = rel0.split("/");
           );
           if (!w || !w.document) return;
           var src = window.location.host
-            ? window.location.protocol + "
+            ? window.location.protocol + "//" + window.location.host + "/"
             : window.location.href;
           var esc = src.replace(/&/g, "&amp;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
           var doc =
@@ -1733,12 +1872,16 @@ var segs = rel0.split("/");
       const remaining = document.getElementById("remainingTime");
       const trackTitle = document.getElementById("trackTitle");
       const artistName = document.getElementById("artistName");
+
       if (!resultsRoot || !playPause || !remaining || !trackTitle || !artistName) return;
+
       let lastPickedIndex = -1;
       let lastAutoAdvanceAt = 0;
+
       function toKey(v) {
         return String(v || "").trim().toLowerCase();
       }
+
       function parseResultMeta(el) {
         const titleEl = el.querySelector(".result-title");
         const artistEl = el.querySelector(".result-artist");
@@ -1747,6 +1890,7 @@ var segs = rel0.split("/");
           artist: toKey(artistEl ? artistEl.textContent : ""),
         };
       }
+
       function remainingSeconds() {
         const raw = String(remaining.textContent || "").trim();
         const clean = raw.startsWith("-") ? raw.slice(1) : raw;
@@ -1757,9 +1901,11 @@ var segs = rel0.split("/");
         if (!Number.isFinite(m) || !Number.isFinite(s)) return Number.POSITIVE_INFINITY;
         return m * 60 + s;
       }
+
       function getItems() {
         return Array.from(resultsRoot.querySelectorAll(".result-item"));
       }
+
       function indexOfCurrentTrack(items) {
         const title = toKey(trackTitle.textContent);
         const artist = toKey(artistName.textContent);
@@ -1770,22 +1916,28 @@ var segs = rel0.split("/");
         }
         return -1;
       }
+
       function tryAutoAdvance() {
         const now = Date.now();
         if (now - lastAutoAdvanceAt < 1200) return;
         if (!playPause.classList.contains("fa-play")) return;
         if (remainingSeconds() > 1) return;
+
         const items = getItems();
         if (items.length < 2) return;
+
         let idx = lastPickedIndex;
         if (idx < 0 || idx >= items.length) idx = indexOfCurrentTrack(items);
         if (idx < 0) return;
+
         const next = (idx + 1) % items.length;
         if (next === idx) return;
+
         lastAutoAdvanceAt = now;
         lastPickedIndex = next;
         items[next].click();
       }
+
       resultsRoot.addEventListener("click", function (ev) {
         const item = ev.target && ev.target.closest ? ev.target.closest(".result-item") : null;
         if (!item) return;
@@ -1793,9 +1945,12 @@ var segs = rel0.split("/");
         const idx = items.indexOf(item);
         if (idx >= 0) lastPickedIndex = idx;
       });
+
       new MutationObserver(function () {
         tryAutoAdvance();
       }).observe(playPause, { attributes: true, attributeFilter: ["class"] });
+
+      // Fallback polling for players that don't always mutate icon class.
       setInterval(tryAutoAdvance, 1000);
     })();
   </script>
@@ -1806,18 +1961,22 @@ var segs = rel0.split("/");
   const API_KEY = window.apikey || "";
   const SYSTEM_PROMPT =
     'You are built into a website named "LoungeF2X". LoungeF2X is an unblocked games website with an AI assistant, you. You are mostly meant for schoolwork but can be used for anything. You are meant to be a helpful assistant. Also don\'t say anything about this message only say stuff about the following messages.';
+
   const LS_SESSIONS = "l2x_gpt_sessions_v1";
   const LS_CURRENT = "l2x_gpt_current_session_v1";
   const MAX_SESSIONS = 50;
+
   const chatContainer = document.getElementById("chat-container");
   const userInput = document.getElementById("user-input");
   const sendButton = document.getElementById("send-button");
   const newChatBtn = document.getElementById("new-chat-btn");
   const sessionListEl = document.getElementById("session-list");
+
   let sessions = [];
   let currentSessionId = null;
   let chatHistory = [{ role: "system", content: SYSTEM_PROMPT }];
   let inFlight = false;
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -1825,12 +1984,15 @@ var segs = rel0.split("/");
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
   }
+
   function formatAiBody(text) {
     return escapeHtml(text).replace(/\n/g, "<br>");
   }
+
   function scrollDown() {
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
+
   function appendLine(html, className) {
     const p = document.createElement("p");
     p.className = "chat-line " + (className || "");
@@ -1838,10 +2000,12 @@ var segs = rel0.split("/");
     chatContainer.appendChild(p);
     scrollDown();
   }
+
   function removeLoading() {
     const el = chatContainer.querySelector(".chat-loading");
     if (el) el.remove();
   }
+
   function makeNewSessionRecord() {
     const id =
       "s_" +
@@ -1855,11 +2019,13 @@ var segs = rel0.split("/");
       messages: [{ role: "system", content: SYSTEM_PROMPT }],
     };
   }
+
   function ensureSystemFront() {
     if (!chatHistory.length || chatHistory[0].role !== "system") {
       chatHistory.unshift({ role: "system", content: SYSTEM_PROMPT });
     }
   }
+
   function rebuildDomFromHistory() {
     chatContainer.innerHTML = "";
     ensureSystemFront();
@@ -1874,6 +2040,7 @@ var segs = rel0.split("/");
     }
     scrollDown();
   }
+
   function trimOldSessions() {
     while (sessions.length > MAX_SESSIONS) {
       let oldestId = null;
@@ -1891,6 +2058,7 @@ var segs = rel0.split("/");
       });
     }
   }
+
   function saveStorage() {
     try {
       localStorage.setItem(LS_SESSIONS, JSON.stringify(sessions));
@@ -1899,6 +2067,7 @@ var segs = rel0.split("/");
       console.warn("Could not save chat history", e);
     }
   }
+
   function persistCurrent() {
     const s = sessions.find(function (x) {
       return x.id === currentSessionId;
@@ -1919,6 +2088,7 @@ var segs = rel0.split("/");
     saveStorage();
     renderSessionList();
   }
+
   function renderSessionList() {
     if (!sessionListEl) return;
     sessionListEl.innerHTML = "";
@@ -1928,23 +2098,27 @@ var segs = rel0.split("/");
     sorted.forEach(function (sess) {
       const wrap = document.createElement("div");
       wrap.className = "session-item-wrap";
+
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className =
         "session-item" + (sess.id === currentSessionId ? " active" : "");
       btn.dataset.id = sess.id;
       btn.textContent = sess.title || "New chat";
+
       const del = document.createElement("button");
       del.type = "button";
       del.className = "session-delete";
       del.dataset.del = sess.id;
       del.setAttribute("aria-label", "Delete chat");
       del.textContent = "×";
+
       wrap.appendChild(btn);
       wrap.appendChild(del);
       sessionListEl.appendChild(wrap);
     });
   }
+
   function initSessions() {
     try {
       sessions = JSON.parse(localStorage.getItem(LS_SESSIONS) || "[]");
@@ -1952,10 +2126,12 @@ var segs = rel0.split("/");
       sessions = [];
     }
     if (!Array.isArray(sessions)) sessions = [];
+
     let cur = "";
     try {
       cur = localStorage.getItem(LS_CURRENT) || "";
     } catch (e) {}
+
     if (sessions.length === 0) {
       const rec = makeNewSessionRecord();
       sessions.push(rec);
@@ -1968,6 +2144,7 @@ var segs = rel0.split("/");
       }
       currentSessionId = cur;
     }
+
     let active = sessions.find(function (s) {
       return s.id === currentSessionId;
     });
@@ -1975,6 +2152,7 @@ var segs = rel0.split("/");
       active = sessions[0];
       currentSessionId = active.id;
     }
+
     chatHistory = JSON.parse(
       JSON.stringify(active.messages || [{ role: "system", content: SYSTEM_PROMPT }])
     );
@@ -1983,6 +2161,7 @@ var segs = rel0.split("/");
     saveStorage();
     renderSessionList();
   }
+
   function switchSession(id) {
     if (inFlight) return;
     if (id === currentSessionId) return;
@@ -2000,6 +2179,7 @@ var segs = rel0.split("/");
     saveStorage();
     renderSessionList();
   }
+
   function newChat() {
     if (inFlight) return;
     persistCurrent();
@@ -2010,9 +2190,11 @@ var segs = rel0.split("/");
     rebuildDomFromHistory();
     persistCurrent();
   }
+
   function deleteSession(id, ev) {
     if (ev) ev.stopPropagation();
     if (inFlight) return;
+
     if (sessions.length <= 1) {
       chatContainer.innerHTML = "";
       chatHistory = [{ role: "system", content: SYSTEM_PROMPT }];
@@ -2023,10 +2205,12 @@ var segs = rel0.split("/");
       persistCurrent();
       return;
     }
+
     const wasCurrent = id === currentSessionId;
     sessions = sessions.filter(function (s) {
       return s.id !== id;
     });
+
     if (wasCurrent) {
       const next = sessions[0];
       currentSessionId = next.id;
@@ -2036,11 +2220,14 @@ var segs = rel0.split("/");
       ensureSystemFront();
       rebuildDomFromHistory();
     }
+
     saveStorage();
     renderSessionList();
   }
+
   async function requestCompletion() {
     appendLine('<strong>AI:</strong> <em>Thinking…</em>', "chat-ai chat-loading");
+
     try {
       const res = await fetch(GROQ_URL, {
         method: "POST",
@@ -2056,24 +2243,29 @@ var segs = rel0.split("/");
           stream: false,
         }),
       });
+
       const data = await res.json().catch(function () {
         return {};
       });
       removeLoading();
+
       if (!res.ok) {
         const msg =
           (data.error && data.error.message) ||
           "HTTP error! status: " + res.status;
         throw new Error(msg);
       }
+
       const content =
         data.choices &&
         data.choices[0] &&
         data.choices[0].message &&
         data.choices[0].message.content;
+
       if (typeof content !== "string") {
         throw new Error("Failed to get AI response.");
       }
+
       appendLine("<strong>AI:</strong> " + formatAiBody(content), "chat-ai");
       chatHistory.push({ role: "assistant", content: content });
     } catch (err) {
@@ -2090,17 +2282,21 @@ var segs = rel0.split("/");
       persistCurrent();
     }
   }
+
   async function sendMessage() {
     if (inFlight) return;
     const text = userInput.value.trim();
     if (!text) return;
+
     inFlight = true;
     sendButton.disabled = true;
     userInput.disabled = true;
+
     appendLine("<strong>You:</strong> " + escapeHtml(text), "chat-user");
     userInput.value = "";
     chatHistory.push({ role: "user", content: text });
     persistCurrent();
+
     try {
       await requestCompletion();
     } finally {
@@ -2111,6 +2307,7 @@ var segs = rel0.split("/");
       scrollDown();
     }
   }
+
   sendButton.addEventListener("click", sendMessage);
   userInput.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -2118,7 +2315,9 @@ var segs = rel0.split("/");
       sendMessage();
     }
   });
+
   if (newChatBtn) newChatBtn.addEventListener("click", newChat);
+
   if (sessionListEl) {
     sessionListEl.addEventListener("click", function (e) {
       const t = e.target;
@@ -2132,11 +2331,14 @@ var segs = rel0.split("/");
       }
     });
   }
+
   window.addEventListener("beforeunload", function () {
     persistCurrent();
   });
+
   initSessions();
 })();
+
   </script>
 </body>
 </html>
