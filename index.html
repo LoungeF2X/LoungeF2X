@@ -1503,7 +1503,7 @@
         function setGameThumb(img, g, embedAbs, name) {
           var tries = [];
           var raw = (g.thumb || g.img || g.image || "").trim();
-          if (raw && !/^https?:\/\
+          if (raw && !/^https?:\/\//.test(raw))
             var rel0 = raw.replace(/^\
             var segs = rel0.split("/");
             var file = segs.pop() || "";
