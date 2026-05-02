@@ -1508,7 +1508,7 @@ var rel0 = raw.replace(/^\//, '');
 var segs = rel0.split("/");
             var file = segs.pop() || "";
             pushThumbFilenameVariants(tries, segs, file);
-          } else if (raw) {
+          } if (raw) {
             pushUniqueThumb(tries, raw);
           }
           var slugN = imgSlugFromName(name);
