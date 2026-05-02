@@ -1447,7 +1447,7 @@
         }
         function absUrl(rel) {
           if (!rel) return "";
-          if (/^https?:\/\
+  if (/^https?:\/\//.test(rel)) {
           return window.LOUNGE_CDN_STATIC + encodePathSegments(rel);
         }
         function updateGamesCount(visible, total) {
