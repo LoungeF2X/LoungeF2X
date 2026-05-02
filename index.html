@@ -1504,8 +1504,8 @@
           var tries = [];
           var raw = (g.thumb || g.img || g.image || "").trim();
           if (raw && !/^https?:\/\//.test(raw))
-            var rel0 = raw.replace(/^\
-            var segs = rel0.split("/");
+var rel0 = raw.replace(/^\//, '');
+var segs = rel0.split("/");
             var file = segs.pop() || "";
             pushThumbFilenameVariants(tries, segs, file);
           } else if (raw) {
