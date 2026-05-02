@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Optional: override CDN base (must end with / and point at the "static" folder on jsDelivr) -->
   <meta name="lounge-cdn-base" content="">
   <title>LoungeF2X</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -290,7 +289,6 @@
       #view-music.music-shell .search-section { justify-content: center; }
       #view-music.music-shell .tagline-link { max-width: 100%; }
     }
-    /* AI (L2X-GPT) */
     #view-ai .roddyrichhesbox {
       background: rgba(50,50,50,.85); border-radius: 20px; padding: 24px;
       box-shadow: 0 4px 30px rgba(0,0,0,.6); max-width: 960px; margin: 12px auto;
@@ -339,7 +337,6 @@
       .ia-layout { flex-direction: column; }
       .session-list { max-height: 120px; }
     }
-    /* Zone Viewer */
     .zone-viewer {
       position: fixed;
       top: 0;
@@ -915,7 +912,6 @@
   border-radius: 3px;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
   .music-main-container {
     flex-direction: column;
@@ -1295,7 +1291,6 @@
         var m = document.querySelector('meta[name="lounge-cdn-base"]');
         var fromMeta = m && m.getAttribute("content") ? m.getAttribute("content").trim() : "";
         if (fromMeta) return fromMeta.endsWith("/") ? fromMeta : fromMeta + "/";
-        /* === EDIT THIS after pushing the repo to GitHub (jsDelivr /gh/ path must include /static/) === */
         var LOUNGE_CDN_STATIC = "https://cdn.jsdelivr.net/gh/LISPlaysYT/L oungeF2X-games@main/static/";
         return LOUNGE_CDN_STATIC;
       }
@@ -1398,7 +1393,6 @@
           document.getElementById("splash").textContent = sp[Math.floor(Math.random() * sp.length)];
         }
 
-        /* Games from jsDelivr manifest */
         var gameContainer = document.getElementById("game-container");
         var gamesCount = document.getElementById("games-count");
         var search = document.getElementById("game-search");
@@ -1430,23 +1424,7 @@
           return b + html;
         }
 
-        function setGameOverlayUrl(url) {
-          var wrap = document.querySelector(".game-overlay-frame-wrap");
-          if (!wrap) return;
-          var el = document.getElementById("game-overlay-url");
-          if (!el) {
-            el = document.createElement("div");
-            el.id = "game-overlay-url";
-            el.style.cssText =
-              "position:absolute;left:10px;right:10px;top:10px;z-index:2;" +
-              "background:rgba(0,0,0,.55);color:#ddd;border:1px solid #333;" +
-              "border-radius:8px;padding:6px 10px;font:12px/1.35 monospace;" +
-              "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;";
-            wrap.appendChild(el);
-          }
-          el.textContent = url ? ("URL: " + url) : "";
-          el.style.display = url ? "block" : "none";
-        }
+    
 
         function injectSrcdocUrlShim(html) {
           if (!html || /l2x-url-shim-v1/.test(html)) return html;
@@ -1459,14 +1437,12 @@
           return shim + html;
         }
 
-        // Define placeholder variables for openZone function
         const coverURL = window.LOUNGE_CDN_STATIC || "";
         const htmlURL = window.LOUNGE_CDN_STATIC || "";
         let zoneFrame;
         let zoneViewer = document.getElementById("zoneViewer");
 
         function openZone(file) {
-            // Load games in the iframe overlay (LoungeF2X behavior)
             openGameInFrame(file.url, file.name);
         }
 
@@ -1475,11 +1451,8 @@
           lastGameCdnUrl = gameUrl;
           overlay.style.display = "flex";
           titleEl.textContent = titleText || "Game";
-          setGameOverlayUrl(gameUrl);
           document.querySelector(".navbar").style.display = "none";
 
-          // Do NOT set frame.src to the game URL. Fetch the HTML, add a <base>
-          // tag so relative assets resolve, then write it into the same-tab iframe.
           frame.removeAttribute("src");
           frame.srcdoc =
             "<!doctype html><body style='margin:0;background:#000;color:#ccc;font-family:Arial,sans-serif;padding:16px'>Loading " +
@@ -1542,7 +1515,6 @@
             .catch(function (err) {
               console.error(err);
               try {
-                // Last-resort fallback to avoid staying stuck on about:blank.
                 w.location.href = gameUrl;
               } catch (_navErr) {
                 w.document.open();
@@ -1694,7 +1666,7 @@
             if (!url) return;
             var wrap = document.createElement("div");
             var a = document.createElement("a");
-            a.href = url; // Set the href attribute
+            a.href = url;
             var img = document.createElement("img");
             img.alt = "";
             setGameThumb(img, g, url, name);
@@ -1798,7 +1770,6 @@
           }
         };
 
-        /* Settings */
         document.getElementById("TabImage").addEventListener("submit", function (ev) {
           ev.preventDefault();
           var v = document.getElementById("TabImageInput").value.trim();
@@ -1950,7 +1921,6 @@
         tryAutoAdvance();
       }).observe(playPause, { attributes: true, attributeFilter: ["class"] });
 
-      // Fallback polling for players that don't always mutate icon class.
       setInterval(tryAutoAdvance, 1000);
     })();
   </script>
