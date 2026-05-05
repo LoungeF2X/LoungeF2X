@@ -1677,12 +1677,11 @@
           currentGame = { url: null, title: null };
           frame.removeAttribute("srcdoc");
           frame.src = "about:blank";
-          
+          document.querySelector(".navbar").style.display = "flex";
           lastGameCdnUrl = null;
           setGameOverlayUrl("");
           frame.removeAttribute("srcdoc");
           frame.src = "about:blank";
-          document.querySelector(".navbar").style.display = "flex";
         };
         document.getElementById("game-btn-fullscreen").onclick = function () {
           if (!document.fullscreenElement) document.documentElement.requestFullscreen();
